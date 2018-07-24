@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        body,html{
+            height: 100%;
+            position: relative;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #header {
+            width: 100%;
+            height: 45px;
+            background-color: transparent;
+            line-height: 45px;
+            text-align: center;
+            position: fixed;
+            top: 0px;
+        }
+        input{
+            /* display: block; */
+            border: none;
+            outline: none;
+            height: 20px;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: #fff;
+            color: #000;
+        }
+        section{
+            width: 100%;
+            height: 500px;
+        }
+        .red{
+            background-color: #ccc;
+        }
+        .green{
+            background-color: green;
+        }
+        .skyblue{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div>
+            <input type="text" placeholder="请输入">
+        </div>
+    </header>
+    <section class="red"></section>
+    <section class="green"></section>
+    <section class="skyblue"></section>
+</body>
+</html>
+<script>
+    //页面被卷去的高度
+    scroll()
+    function scroll(){
+        var scrollTop=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop||0;
+        var redBoxHeight=document.querySelector(".red").offsetHeight;
+        console.log("...");
+        //透明度
+        var opacity=scrollTop/redBoxHeight
+        console.log(opacity);
+        //给头部标签设置背景颜色
+        document.querySelector("#header").style.backgroundColor='rgba(222,24,27,'+opacity+')'
+    }
+    window.addEventListener('scroll',scroll)
+    
+</script>
